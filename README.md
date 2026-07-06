@@ -1,64 +1,85 @@
-💳 Wallet Payment System
+# 💳 Wallet Payment System
 
-A secure and scalable wallet-based payment system built with Spring Boot, Hibernate/JPA, and PostgreSQL, designed to handle user authentication, wallet balance management, and transaction operations.
+A secure, scalable, and event-driven wallet-based payment system built with Spring Boot, Hibernate/JPA, and PostgreSQL. It is designed to handle user authentication, robust wallet balance management, transaction operations, and real-time email notifications via RabbitMQ.
 
-⚡ Features
+## ⚡ Features
 
-✅ User Authentication & Authorization (JWT-based)
-✅ Role-based Access (Admin/User separation)
-✅ Wallet Management – check balance, deposit, withdraw
-✅ Secure Payments with transaction history
-✅ RESTful APIs for smooth integration
-✅ PostgreSQL as the database (SQL ready)
-✅ Spring Data JPA + Hibernate for ORM
-✅ BCrypt password encryption for security
+- ✅ **User Authentication & Authorization**: Secure JWT-based authentication.
+- ✅ **Role-based Access Control**: Clear separation between Admin and User roles.
+- ✅ **Wallet Management**: Easily check balance, deposit, and withdraw funds securely.
+- ✅ **Transaction History**: Keeps a secure log of all financial transactions.
+- ✅ **Event-Driven Architecture**: Uses RabbitMQ for async notification processing.
+- ✅ **Email Alerts**: Automatic email notifications for wallet transactions via SMTP.
+- ✅ **RESTful APIs**: Clean and standardized APIs for smooth integration.
+- ✅ **API Documentation**: Interactive API documentation using Swagger UI / OpenAPI.
+- ✅ **Application Monitoring**: Health and metrics monitoring using Spring Boot Actuator.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Backend: Java, Spring Boot
+- **Backend**: Java 21, Spring Boot 3.5.x
+- **Database**: PostgreSQL
+- **ORM**: Hibernate, Spring Data JPA
+- **Security**: Spring Security, JWT (JSON Web Tokens)
+- **Message Broker**: RabbitMQ (AMQP)
+- **Mail Service**: Java Mail Sender (SMTP)
+- **API Documentation**: SpringDoc OpenAPI (Swagger UI)
+- **Build Tool**: Maven
 
-Database: PostgreSQL, SQL
+## 🚀 Getting Started
 
-ORM: Hibernate, Spring Data JPA
+### 1. Clone the Repository
+```bash
+git clone https://github.com/netacodes18/Wallet-Payment-System.git
+cd Wallet-Payment-System/Wallet-Payment-System
+```
 
-Auth: JWT, Spring Security
+### 2. Configure Dependencies
 
-Build Tool: Maven
+Ensure you have the following installed and running:
+- **PostgreSQL** (Default Port: 5432)
+- **RabbitMQ** (Default Port: 5672)
 
-Tools: IntelliJ IDEA, Git, GitHub
+### 3. Database Setup
 
-🚀 Getting Started
-1. Clone the repo
-git clone https://github.com/NoBrain-UI/Wallet_Payment_System.git
-cd Wallet_Payment_System
-
-2. Configure PostgreSQL
-
-Create a database (e.g. wallet_db).
-
-Update application.properties with your DB credentials.
-
-spring.datasource.url=jdbc:postgresql://localhost:5432/wallet_db
-spring.datasource.username=your_username
+Create a PostgreSQL database named `Wallet_System`. Update `src/main/resources/application.properties` with your PostgreSQL credentials:
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/Wallet_System
+spring.datasource.username=postgres
 spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
+```
 
-3. Run the app
+### 4. Email Configuration
+
+To enable fully working email notifications, update the SMTP settings in `application.properties` with your credentials:
+```properties
+spring.mail.username=your_email@gmail.com
+spring.mail.password=your_app_password
+```
+
+### 5. Run the Application
+
+Navigate to the project root (where the `pom.xml` is located) and run the application using Maven:
+```bash
 mvn spring-boot:run
+```
+The server will start on port `8082`.
 
-📌 API Endpoints
-Method	Endpoint	Description
-POST	/api/auth/register	Register new user
-POST	/api/auth/login	Login user & get JWT token
-GET	/api/wallet/balance	Get wallet balance
-POST	/api/wallet/deposit	Deposit amount
-POST	/api/wallet/withdraw	Withdraw amount
-📸 Screenshots (Optional)
-👨‍💻 Author
+## 📌 API Endpoints
 
-NoBrain-UI (Hardyansh)
-Pre-Final Year @ IIIT Ranchi | Full Stack Developer (Spring Boot + MERN)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Login user & retrieve JWT token |
+| GET | `/api/wallet/balance` | Get current wallet balance |
+| POST | `/api/wallet/deposit` | Deposit amount into the wallet |
+| POST | `/api/wallet/withdraw` | Withdraw amount from the wallet |
 
-⭐ Contribute
+*Tip: You can explore and test all APIs interactively via Swagger UI by navigating to `http://localhost:8082/swagger-ui.html` once the server is running.*
 
-Want to improve this project? Fork it and create a PR 🚀
+## 👨‍💻 Author
+
+**Utkarsh Pratap (netacodes18)**
+
+## ⭐ Contribute
+
+Want to improve this project? Feel free to fork it, create a new branch, and submit a Pull Request! 🚀
