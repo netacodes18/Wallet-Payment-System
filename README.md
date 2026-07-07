@@ -1,4 +1,4 @@
-# 💳 Wallet Payment System
+# 💳 QuickkPay
 
 A secure, scalable, and event-driven wallet-based payment system built with Spring Boot, Hibernate/JPA, and PostgreSQL. It is designed to handle user authentication, robust wallet balance management, transaction operations, and real-time email notifications via RabbitMQ.
 
